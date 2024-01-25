@@ -1,9 +1,5 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'package:rest_api/models/user.dart';
-import 'package:rest_api/models/user_name.dart';
 import 'package:rest_api/services/user_api.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -32,14 +28,13 @@ class _HomeScreenState extends State<HomeScreen> {
         itemCount: users.length,
         itemBuilder: (context, index) {
           final user = users[index];
-          final email = user.email;
           // final colr = user.gender == 'male' ? Colors.blue : Colors.green;
           return ListTile(
             title: Text(
               user.fullName,
               // style: TextStyle(color: colr),
             ),
-            subtitle: Text(user.phone),
+            subtitle: Text(user.location.country),
           );
         },
       ),
